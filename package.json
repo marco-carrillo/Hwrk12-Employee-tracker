@@ -1,0 +1,25 @@
+{
+  "name": "hwrk12-employee-tracker",
+  "version": "1.0.0",
+  "description": "Employee Management System",
+  "main": "app.js",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^7.0.4",
+    "mysql2": "^2.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marco-carrillo/Hwrk12-Employee-tracker.git"
+  },
+  "author": "Marco Carrillo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marco-carrillo/Hwrk12-Employee-tracker/issues"
+  },
+  "homepage": "https://github.com/marco-carrillo/Hwrk12-Employee-tracker#readme"
+}

@@ -1,33 +1,33 @@
-//*************************************************************************/
-//  Aplication main functionality.  Initialization of required variables  *
-//*************************************************************************/
-const inquirer=require('inquirer');
+///*************************/
+//  Install dependencies   */
+//**************************/
+let inquirer=require('inquirer');
+let mysql=require('mysql2');
+let cTable = require('console.table');
+require('events').EventEmitter.defaultMaxListeners = Infinity;
+let delet=require('./employee/employee-edit')
 
-(async function(){
-    console.log('just entered')
+//*******************************/
+//  connecting to local server  */
+//*******************************/
+let connection = mysql.createConnection({
+    host: "localhost",           // local host name
+    port: 3306,                  // Your port; if not 3306
+    user: "root",                // Your username
+    password: "mydogandcat",     // Your password
+    database: "employee_system"      // Database we will be connecting to
+  });
 
-    try{
+  connection.connect(function(err) {
+    if (err) throw err;
+    console.log("connected as id " + connection.threadId + "\n");
+    main();                      // If connection successfully, then go to start function
+  });
 
-        do {
-            //************************************************ */
-            // Main menu -> Displaying options for main menu   */
-            //************************************************ */
-            let questions=[{type:'list',message:`What would you like to do today? `,
-                               choices:['Manage Departments','Manage Roles','Manage Employees','Exit'],name:'response'}];
+  async function main(){
+      try{
 
-            process.stdout.write('\033c');
-            answers=await inquirer.prompt(questions);
-
-            //*************************************************************** */
-            // Now, it will do either one of three options based on selection */
-            //*************************************************************** */
-            questions=[{type:'list',message:`You want to do ${answers.response}, is that correct ? `,
-                               choices:['Yes','No'],name:'response'}];
-            
-            conf=await inquirer.prompt(questions);
-        } while (answers.response!=='Exit');
-
-
-    } catch(error){console.log('Error while running the application:  ',error)};       //  Error handler
-
-})();
+        await delet(connection,inquirer);
+        connection.end();
+      }catch(error){console.log(error)}
+  }
