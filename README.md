@@ -53,4 +53,4 @@ Users can request to see a list of all departments that have employees, and how 
 
 ##  Overall application demonstration
 
-![GIF of input](./gifs/app-run.gif)
+![GIF of input](./picsandgifs/demo.gif)
