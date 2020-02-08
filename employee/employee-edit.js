@@ -99,7 +99,7 @@ module.exports=async function role_add(connection,inquirer,questions){
                     console.log('\x1b[41m',`Employee ${answers.first} ${answers.last} is invalid.  Needs to be at least 5 characters long`,'\x1b[0m');
                 };
 
-        } while (exists||(answers.first+answers.last)<5);
+        } while (exists||(answers.first.length+answers.last.length)<5);
 
         //************************************************************/
         // Getting the ID that corresponds to the role chosen  */

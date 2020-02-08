@@ -49,14 +49,14 @@ module.exports=async function role_add(connection,inquirer,questions){
             // title needs to be at least 5 characters long.  Throws error otherwise  */
             //*************************************************************************/
             if (answers.title.length<5){
-                    console.log('\x1b[41m',`Role name ${answers.role_title} is invalid.  Needs to be at least 5 characters long`,'\x1b[0m');
+                    console.log('\x1b[41m',`Role name ${answers.title} is invalid.  Needs to be at least 5 characters long`,'\x1b[0m');
                 }
 
             //**************************************************************/
             // Salary needs to be at least 1,000.  Throws error otherwise  */
             //**************************************************************/
             if (answers.salary<1000){
-                console.log('\x1b[41m',`Role salary of ${answers.role_title} is invalid.  Needs to be at least $1,000`,'\x1b[0m');
+                console.log('\x1b[41m',`Role salary of ${answers.salary} is invalid.  Needs to be at least $1,000`,'\x1b[0m');
             }
 
         } while (exists||answers.title.length<5||answers.salary<1000);

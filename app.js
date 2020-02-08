@@ -51,7 +51,9 @@ let manager_view =require('./common/view-manager-emp');
 //*******************************************************************************/
 async function main_menu(){
     try {
-        let all_options=['1. Department management','2. Role management','3. Employee-management',
+        let all_options=['1. Department management (add/edit/view/delete)',
+                         '2. Role management (add/edit/view/delete)',
+                         '3. Employee-management  (add/edit & change manager]/view/delete)',new inquirer.Separator(),
                          '4. View Employees by Manager','5. View budget by department','6. Exit'];    // main menu choices
         let all_actions=[];
         do {
@@ -148,18 +150,18 @@ async function main_menu(){
                             break;
                     };
                     break;
-                case all_options[3]:                        // View employees by manager
+                case all_options[4]:                        // View employees by manager
                     await manager_view(connection,inquirer);
                     break;
-                case all_options[4]:                        // View budget by department
+                case all_options[5]:                        // View budget by department
                     await budget_view(connection,inquirer);
                     break;
-                case all_options[5]:                        // Exit
+                case all_options[6]:                        // Exit
                     connection.end();
                     break;
             };
 
-        } while (area.response_chosen!==all_options[5]);
+        } while (area.response_chosen!==all_options[6]);
 
     } catch(error) {console.log('Error while running application: ',error)};
 };  // End async function
